@@ -1,0 +1,6 @@
+streamlit
+feedparser
+bs4
+langchain
+transformers
+google-cloud-aiplatform
