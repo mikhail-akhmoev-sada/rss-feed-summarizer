@@ -18,7 +18,7 @@ pip install -r requirements.txt
 ```
 
 ## Running the tests
-Run the following command to run the tests.
+Execute the following command to run the tests.
 ```
 pytest
 ```
