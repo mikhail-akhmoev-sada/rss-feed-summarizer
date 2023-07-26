@@ -3,6 +3,7 @@ import streamlit as st
 from langchain.chains.summarize import load_summarize_chain
 from langchain.llms import VertexAI
 from langchain.document_loaders import WebBaseLoader
+from bs4 import BeautifulSoup
 
 
 def get_rss_feed(url):
@@ -37,6 +38,12 @@ def summarize_article(doc_article, llm):
 
     return text_summary
 
+# removes markdown characters
+def sanitize_summary(txt_summary):
+    soup = BeautifulSoup(txt_summary, features="html.parser")
+
+    return soup.get_text()
+
 
 def main():
     st.title("RSS Feed Summary")
@@ -66,7 +73,7 @@ def main():
 
             st.divider()
             st.subheader(title, help=f"Published on {article['published']}")
-            st.write(summary)
+            st.write(sanitize_summary(summary))
             st.markdown("[more...](%s)" % link)
 
 
