@@ -30,7 +30,7 @@ The tests should pass without any errors.
 ## Running application locally
 Ensure you have authenticated to Google Cloud using `gcloud auth application-default login` or provided service account credentials. For details instructions follow https://cloud.google.com/docs/authentication/provide-credentials-adc#local-dev
 
-Run from application 
+Run from application folder 
 ```
 streamlit run rss_feed_summarizer.py
 ```
