@@ -1,12 +1,12 @@
 ## Installation
 
-1. Clone repository github.com/<>.
+1. Clone repository https://github.com/makh-sada/rss-feed-summarizer.
 2. Create a virtual environment.
 
 ```
 python3 -m venv venv
 ```
-## Activate the virtual environment
+### Activate the virtual environment
 ```
 source venv/bin/activate
 ```
@@ -15,7 +15,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Running the tests
+## Running the tests
 Run the following command to run the tests.
 ```
 pytest
@@ -23,8 +23,9 @@ pytest
 Expected output
 ```
 The tests should pass without any errors.
+```
 
-### Deactivate the virtual environment
+## Deactivate the virtual environment
 ```
 deactivate
 ```
