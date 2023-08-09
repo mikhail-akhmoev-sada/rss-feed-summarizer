@@ -21,7 +21,7 @@ def get_article(url):
 
 def get_llm_model(temperature=0.2, max_output_tokens=256, top_k=40, top_p=0.95):
     return VertexAI(
-            model_name="text-bison@001",
+            model_name="text-bison",
             temperature=temperature,
             max_output_tokens=max_output_tokens,
             top_k=top_k,
