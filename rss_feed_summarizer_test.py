@@ -1,4 +1,11 @@
-from rss_feed_summarizer import get_rss_feed, get_article, summarize_article, get_llm_model, sanitize_summary
+from rss_feed_summarizer import (
+    get_rss_feed,
+    get_article,
+    summarize_article,
+    get_llm_model,
+    sanitize_summary,
+)
+
 
 def test_get_rss_feed():
     rss_feed_url = "https://cloudblog.withgoogle.com/products/data-analytics/rss/"
@@ -7,11 +14,13 @@ def test_get_rss_feed():
     assert rss_feed is not None
     assert len(rss_feed["entries"]) > 0
 
+
 def test_get_article():
     article_url = "https://cloud.google.com/blog/products/data-analytics/unlock-insights-faster-from-your-mysql-data-in-bigquery/"
     article_text = get_article(article_url)
     assert article_text is not None
     assert len(article_text) > 0
+
 
 def test_summarize_article():
     article_url = "https://cloud.google.com/blog/products/data-analytics/unlock-insights-faster-from-your-mysql-data-in-bigquery/"
@@ -20,6 +29,7 @@ def test_summarize_article():
     summary = summarize_article(article_text, get_llm_model())
 
     print(summary)
+
 
 def test_sanitize_summary():
     summary = """

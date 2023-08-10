@@ -21,12 +21,13 @@ def get_article(url):
 
 def get_llm_model(temperature=0.2, max_output_tokens=256, top_k=40, top_p=0.95):
     return VertexAI(
-            model_name="text-bison",
-            temperature=temperature,
-            max_output_tokens=max_output_tokens,
-            top_k=top_k,
-            top_p=top_p,
-        )
+        model_name="text-bison",
+        temperature=temperature,
+        max_output_tokens=max_output_tokens,
+        top_k=top_k,
+        top_p=top_p,
+    )
+
 
 def summarize_article(doc_article, llm):
     doc_length = sum([len(d.page_content) for d in doc_article])
@@ -38,6 +39,7 @@ def summarize_article(doc_article, llm):
 
     return text_summary
 
+
 # removes markdown characters
 def sanitize_summary(txt_summary):
     soup = BeautifulSoup(txt_summary, features="html.parser")
@@ -48,7 +50,10 @@ def sanitize_summary(txt_summary):
 def main():
     st.title("RSS Feed Summary")
 
-    url = st.text_input("Enter RSS feed URL", "https://cloudblog.withgoogle.com/products/data-analytics/rss/")
+    url = st.text_input(
+        "Enter RSS feed URL",
+        "https://cloudblog.withgoogle.com/products/data-analytics/rss/",
+    )
     if url:
         rss_feed = get_rss_feed(url)
         articles = rss_feed["entries"]
@@ -58,7 +63,7 @@ def main():
         )
 
         temperature = st.sidebar.slider("Temperature", 0.1, 1.0, value=0.2)
-        max_output_tokens = st.sidebar.slider("maxOutputTokens", 1 , 1024, value=256)
+        max_output_tokens = st.sidebar.slider("maxOutputTokens", 1, 1024, value=256)
         top_k = st.sidebar.slider("topK", 1, 40, value=40)
         top_p = st.sidebar.slider("topP", 0.0, 1.0, value=0.95)
 
